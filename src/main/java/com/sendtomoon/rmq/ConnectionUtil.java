@@ -13,7 +13,8 @@ public class ConnectionUtil {
 	private static ConnectionUtil instance = new ConnectionUtil();
 	private static final ConnectionFactory connection = new ConnectionFactory();
 	static {
-		connection.setVirtualHost("192.168.0.2");
+		connection.setHost("192.168.0.2");
+		connection.setVirtualHost("sdm");
 		connection.setPort(5672);
 		connection.setUsername("sdm");
 		connection.setPassword("sdm");
