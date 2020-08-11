@@ -12,9 +12,8 @@ import com.sendtomoon.rmq.ConnectionUtil;
 public class Producer {
 
 	public void sendMessage() {
-		ConnectionUtil util = ConnectionUtil.getInstance();
 		try {
-			Connection conn = util.getConnection().newConnection();
+			Connection conn = ConnectionUtil.getConnection().newConnection();
 			Channel channel = conn.createChannel();
 			channel.queueDeclare("SIMPLE_QUEUE", false, false, false, null);
 			channel.basicPublish("", "SIMPLE_QUEUE", null, UUID.randomUUID().toString().getBytes());
