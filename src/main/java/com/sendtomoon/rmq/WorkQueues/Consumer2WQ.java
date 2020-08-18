@@ -15,9 +15,8 @@ public class Consumer2WQ {
 		try {
 			conn = ConnectionUtil.getConnection().newConnection();
 			Channel channel = conn.createChannel();
-			channel.basicQos(5);
+			channel.basicQos(2);
 			channel.basicConsume("WORK_QUEUE", true, new DefaultConsumer(channel) {
-
 				@Override
 				public void handleDelivery(String consumerTag, Envelope envelope, BasicProperties properties,
 						byte[] body) throws IOException {
