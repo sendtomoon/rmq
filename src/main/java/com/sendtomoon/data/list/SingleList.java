@@ -11,25 +11,26 @@ public class SingleList<T> {
 
     public SingleList() {
         first = new Node(null, null);
+        size = 0;
     }
 
     public void add(T t) {
-        Node temp;
-        temp = first;
+        Node temp = first;
         while (true) {
             if (temp.getNext() == null) {
                 break;
             }
-            temp=temp.getNext();
+            temp = temp.getNext();
         }
-        Node t2 = new Node(t,null);
+        Node t2 = new Node(t, null);
         temp.setNext(t2);
+        ++size;
     }
 
-    public T get(int pos){
+    public T get(int pos) {
         Node<T> temp = first;
-        for(int i=0;i<=pos;i++){
-            temp=temp.getNext();
+        for (int i = 0; i <= pos; i++) {
+            temp = temp.getNext();
         }
         return temp.getT();
     }
